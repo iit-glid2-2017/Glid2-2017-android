@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Application de test</string>
     <string name="hello_string">Salut Tout le monde!!!</string>
+    <string name="just_click_here">Vous devez seulement cliquer ici\ndonc il faut se rendre à l\'évidence et cliquer</string>
 </resources>

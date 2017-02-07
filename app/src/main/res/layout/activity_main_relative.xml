@@ -12,7 +12,8 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.iit.glid2017.app.MainActivity">
 
-    <TextView
+    <EditText
+        android:id="@+id/edit_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/top_left"
@@ -22,7 +23,8 @@
         android:layout_marginTop="10dp"
         android:layout_toRightOf="@id/top_left"
         android:background="@android:color/white"
-        android:text="@string/hello_string" />
+        android:gravity="top"
+        android:hint="@string/hello_string" />
 
     <View
         android:id="@id/top_left"
@@ -40,16 +42,18 @@
         android:layout_toRightOf="@id/top_left"
         android:background="@android:color/white"
         android:gravity="center"
-        android:text="test appli" />
+        android:text="@string/just_click_here" />
 
 
-    <View
+    <Button
+        android:id="@+id/main_activity_ok"
         android:layout_width="match_parent"
-        android:layout_height="20dp"
+        android:layout_height="wrap_content"
         android:layout_below="@id/top_left"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="10dp"
-        android:background="@android:color/holo_blue_light" />
+        android:background="@android:color/holo_blue_light"
+        android:text="@android:string/ok" />
 
 
 </RelativeLayout>

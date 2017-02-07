@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name">TestApp</string>
     <string name="hello_string">Hello World !!!</string>
+    <string name="activity_2_hint">Enter name here</string>
+    <string name="just_click_here">just click here</string>
 </resources>
