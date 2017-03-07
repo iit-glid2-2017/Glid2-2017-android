@@ -5,26 +5,21 @@
     android:layout_margin="5dp"
     android:background="@drawable/item_bg">
 
-    <ImageView
-        android:id="@+id/image"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true" />
-
-    <TextView
-        android:id="@+id/title"
+    <EditText
+        android:id="@+id/title_edit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_toRightOf="@id/image"
+        android:hint="Enter Title"
         android:textColor="@android:color/black" />
 
-    <TextView
-        android:id="@+id/description"
+    <EditText
+        android:id="@+id/description_edit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@id/title"
-        android:layout_below="@id/title"
+        android:layout_alignLeft="@id/title_edit"
+        android:layout_below="@id/title_edit"
+        android:hint="Enter Description"
         android:textColor="@android:color/black" />
 
 </RelativeLayout>

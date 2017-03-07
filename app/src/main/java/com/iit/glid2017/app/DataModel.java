@@ -1,10 +1,12 @@
 package com.iit.glid2017.app;
 
+import java.io.Serializable;
+
 /**
  * Created by slim on 07/03/17.
  */
 
-public class DataModel {
+public class DataModel implements Serializable {
 
     private String mTitle;
     private String mDescription;
