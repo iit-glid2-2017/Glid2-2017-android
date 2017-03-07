@@ -3,4 +3,6 @@
     <string name="hello_string">Hello World !!!</string>
     <string name="activity_2_hint">Enter name here</string>
     <string name="just_click_here">just click here</string>
+    <string name="title_activity_list">ListActivity</string>
+    <string name="action_settings">Settings</string>
 </resources>

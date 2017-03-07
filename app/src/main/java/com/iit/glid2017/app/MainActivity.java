@@ -48,11 +48,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         startActivity(intent);
     }
 
+    private void openListActivity() {
+        Intent intent = new Intent(getApplicationContext(), ListActivity.class);
+        startActivity(intent);
+    }
+
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.main_activity_ok:
-                openActivity2();
+                openListActivity();
                 break;
             default:
                 break;
