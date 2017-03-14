@@ -2,6 +2,7 @@ package com.iit.glid2017.app;
 
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -33,9 +34,12 @@ public class ListActivityFragment extends Fragment implements ResultDialog.Resul
         View view = inflater.inflate(R.layout.fragment_list, container, false);
 
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
+        // just uncomment the following and comment the grid part to switch between vertical list or grid list
+        //LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
+        //recyclerView.setLayoutManager(linearLayoutManager);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(), 2);
 
-        recyclerView.setLayoutManager(linearLayoutManager);
+        recyclerView.setLayoutManager(gridLayoutManager);
 
         if (savedInstanceState != null) {
             Log.v("onCreateView", "restore");
@@ -95,16 +99,16 @@ public class ListActivityFragment extends Fragment implements ResultDialog.Resul
     }
 
     private void deleteItemPerform() {
-        int pos =0;
-       while(pos <mContentList.size()){
+        int pos = 0;
+        while (pos < mContentList.size()) {
 
-           if(mContentList.get(pos).isChecked()){
-               mContentList.remove(pos);
-               customAdapter.notifyItemRemoved(pos);
-           }else {
-               pos++;
-           }
-       }
+            if (mContentList.get(pos).isChecked()) {
+                mContentList.remove(pos);
+                customAdapter.notifyItemRemoved(pos);
+            } else {
+                pos++;
+            }
+        }
     }
 
     @Override
