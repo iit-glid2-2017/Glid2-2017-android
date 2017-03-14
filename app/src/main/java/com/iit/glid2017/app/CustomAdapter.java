@@ -5,6 +5,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -40,6 +42,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ItemViewHo
         holder.mTitle.setText(dataModel.getTitle());
         holder.mDescription.setText(dataModel.getDescription());
         holder.mImage.setImageResource(dataModel.getImageRes());
+        holder.mCheckBox.setChecked(dataModel.isChecked());
     }
 
     @Override
@@ -47,11 +50,12 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ItemViewHo
         return mDataList.size();
     }
 
-    class ItemViewHolder extends RecyclerView.ViewHolder {
+    class ItemViewHolder extends RecyclerView.ViewHolder implements CompoundButton.OnCheckedChangeListener {
 
         TextView mTitle;
         TextView mDescription;
         ImageView mImage;
+        CheckBox mCheckBox;
 
         public ItemViewHolder(View itemView) {
             super(itemView);
@@ -59,7 +63,15 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ItemViewHo
             mTitle = (TextView) itemView.findViewById(R.id.title);
             mDescription = (TextView) itemView.findViewById(R.id.description);
             mImage = (ImageView) itemView.findViewById(R.id.image);
+            mCheckBox = (CheckBox) itemView.findViewById(R.id.check_box);
+            mCheckBox.setOnCheckedChangeListener(this);
 
+        }
+
+        @Override
+        public void onCheckedChanged(CompoundButton compoundButton, boolean state) {
+
+            mDataList.get(getAdapterPosition()).setChecked(state);
 
         }
     }

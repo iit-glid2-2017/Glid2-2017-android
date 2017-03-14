@@ -42,24 +42,24 @@ public class ListActivityFragment extends Fragment implements ResultDialog.Resul
             mContentList = (ArrayList<DataModel>) savedInstanceState.getSerializable(CONTENT_LIST_KEY);
         } else {
             mContentList = new ArrayList<>();
+            initContent();
         }
         customAdapter = new CustomAdapter(getActivity().getApplicationContext(), mContentList);
         recyclerView.setAdapter(customAdapter);
 
         setHasOptionsMenu(true);
 
-
         return view;
     }
 
-//    private void initContent() {
-//        mContentList = new ArrayList<>();
-//
-//        for (int i = 0; i < 2000; i++) {
-//            DataModel dataModel = new DataModel("Title " + i, "Description " + i, R.mipmap.ic_launcher);
-//            mContentList.add(dataModel);
-//        }
-//    }
+    private void initContent() {
+        mContentList = new ArrayList<>();
+
+        for (int i = 0; i < 2000; i++) {
+            DataModel dataModel = new DataModel("Title " + i, "Description " + i, R.mipmap.ic_launcher);
+            mContentList.add(dataModel);
+        }
+    }
 
 
     @Override
@@ -81,6 +81,10 @@ public class ListActivityFragment extends Fragment implements ResultDialog.Resul
                 Log.v("test", "add menu item clicked");
                 addItemPerform();
                 break;
+            case R.id.action_delete:
+                Log.v("test", "delete menu item clicked");
+                deleteItemPerform();
+                break;
         }
         return super.onOptionsItemSelected(item);
     }
@@ -88,6 +92,19 @@ public class ListActivityFragment extends Fragment implements ResultDialog.Resul
     private void addItemPerform() {
         ResultDialog resultDialog = ResultDialog.newInstance(this);
         resultDialog.show(getFragmentManager(), "");
+    }
+
+    private void deleteItemPerform() {
+        int pos =0;
+       while(pos <mContentList.size()){
+
+           if(mContentList.get(pos).isChecked()){
+               mContentList.remove(pos);
+               customAdapter.notifyItemRemoved(pos);
+           }else {
+               pos++;
+           }
+       }
     }
 
     @Override

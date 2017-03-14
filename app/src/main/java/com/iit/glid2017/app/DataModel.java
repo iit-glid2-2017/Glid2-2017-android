@@ -11,6 +11,7 @@ public class DataModel implements Serializable {
     private String mTitle;
     private String mDescription;
     private int mImageRes;
+    private boolean isChecked;
 
 
     public DataModel() {
@@ -45,5 +46,13 @@ public class DataModel implements Serializable {
 
     public void setImageRes(int mImageRes) {
         this.mImageRes = mImageRes;
+    }
+
+    public boolean isChecked() {
+        return isChecked;
+    }
+
+    public void setChecked(boolean checked) {
+        isChecked = checked;
     }
 }
